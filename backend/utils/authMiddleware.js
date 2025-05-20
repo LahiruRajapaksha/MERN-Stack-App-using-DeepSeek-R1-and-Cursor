@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
 
-exports.authenticate = async (req, res, next) => {
+export const authenticate = async (req, res, next) => {
   const token = req.header('x-auth-token');
   if (!token) return res.status(401).json({ msg: 'No token, authorization denied' });
 
@@ -14,7 +14,7 @@ exports.authenticate = async (req, res, next) => {
   }
 };
 
-exports.authorize = (...roles) => {
+export const authorize = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
       return res.status(403).json({ msg: 'Unauthorized access' });

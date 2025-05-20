@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const EnrollmentSchema = new mongoose.Schema({
   student: { type: mongoose.Schema.Types.ObjectId, ref: 'Student', required: true },
@@ -6,4 +6,5 @@ const EnrollmentSchema = new mongoose.Schema({
   enrollmentDate: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Enrollment', EnrollmentSchema); 
+const Enrollment = mongoose.model('Enrollment', EnrollmentSchema); 
+export default Enrollment;

@@ -1,9 +1,9 @@
-require('dotenv').config();
-const connectDB = require('../config/db');
-const Student = require('../models/Student');
-const Course = require('../models/Course');
-const User = require('../models/User');
-const bcrypt = require('bcryptjs');
+import 'dotenv/config';
+import connectDB from '../config/db.js';
+import Student from '../models/Student.js';
+import Course from '../models/Course.js';
+import User from '../models/User.js';
+import bcrypt from 'bcryptjs';
 
 const seedData = async () => {
   await connectDB();

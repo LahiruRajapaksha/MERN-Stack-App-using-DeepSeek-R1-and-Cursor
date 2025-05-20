@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const CourseSchema = new mongoose.Schema({
   courseID: { type: String, required: true, unique: true },
@@ -7,4 +7,5 @@ const CourseSchema = new mongoose.Schema({
   startDate: { type: Date, required: true }
 });
 
-module.exports = mongoose.model('Course', CourseSchema); 
+const Course = mongoose.model('Course', CourseSchema); 
+export default Course;

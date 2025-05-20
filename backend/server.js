@@ -1,16 +1,16 @@
-require('dotenv').config();
-const express = require('express');
-const connectDB = require('./config/db');
-const auth = require('./routes/auth');
-const students = require('./routes/students');
-const courses = require('./routes/courses');
-const enrollments = require('./routes/enrollments');
-const swaggerUi = require('swagger-ui-express');
-const YAML = require('yamljs');
-const swaggerDocument = YAML.load('./swagger.yaml');
-const cors = require('cors');
+import 'dotenv/config';
+import express from 'express';
+import connectDB from './config/db.js';
+import auth from './routes/auth.js';
+import students from './routes/students.js';
+import courses from './routes/courses.js';
+import enrollments from './routes/enrollments.js';
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
+import cors from 'cors';
 
 const app = express();
+const swaggerDocument = YAML.load('./swagger.yaml');
 
 // Connect Database
 connectDB();
